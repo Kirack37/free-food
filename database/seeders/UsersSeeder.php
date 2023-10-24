@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UsersSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        // We need to check if the user is already in the database
+        // Comprobamos que el usuario esté en DB
         $user = User::where('email', 'gerente@host.com')->first();
         if(!isset($user)) {
             User::insert([

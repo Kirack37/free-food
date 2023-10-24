@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (Schema::hasTable('users')) {
+        if (!Schema::hasTable('users')) {
             Schema::table('users', function (Blueprint $table) {
                 $table->text('two_factor_secret')
                     ->after('password')
