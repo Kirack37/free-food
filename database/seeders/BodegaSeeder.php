@@ -26,7 +26,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $limon = Bodega::where('slug', 'limon')->first();
+        $limon = Ingrediente::where('slug', 'limon')->first();
         if(isset($limon)) {
             $limon_bodega = Bodega::where('ingrediente_id', $limon->id)->first();
         }
@@ -37,7 +37,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $patata = Bodega::where('slug', 'patata')->first();
+        $patata = Ingrediente::where('slug', 'patata')->first();
         if(isset($patata)) {
             $patata_bodega = Bodega::where('ingrediente_id', $patata->id)->first();
         }
@@ -48,7 +48,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $arroz = Bodega::where('slug', 'arroz')->first();
+        $arroz = Ingrediente::where('slug', 'arroz')->first();
         if(isset($arroz)) {
             $arroz_bodega = Bodega::where('ingrediente_id', $arroz->id)->first();
         }
@@ -59,7 +59,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $ketchup = Bodega::where('slug', 'ketchup')->first();
+        $ketchup = Ingrediente::where('slug', 'ketchup')->first();
         if(isset($ketchup)) {
             $ketchup_bodega = Bodega::where('ingrediente_id', $ketchup->id)->first();
         }
@@ -70,7 +70,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $lechuga = Bodega::where('slug', 'lechuga')->first();
+        $lechuga = Ingrediente::where('slug', 'lechuga')->first();
         if(isset($lechuga)) {
             $lechuga_bodega = Bodega::where('ingrediente_id', $lechuga->id)->first();
         }
@@ -81,7 +81,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $cebolla = Bodega::where('slug', 'cebolla')->first();
+        $cebolla = Ingrediente::where('slug', 'cebolla')->first();
         if(isset($cebolla)) {
             $cebolla_bodega = Bodega::where('ingrediente_id', $cebolla->id)->first();
         }
@@ -92,7 +92,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $queso = Bodega::where('slug', 'queso')->first();
+        $queso = Ingrediente::where('slug', 'queso')->first();
         if(isset($queso)) {
             $queso_bodega = Bodega::where('ingrediente_id', $queso->id)->first();
         }
@@ -103,7 +103,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $carne = Bodega::where('slug', 'carne')->first();
+        $carne = Ingrediente::where('slug', 'carne')->first();
         if(isset($carne)) {
             $carne_bodega = Bodega::where('ingrediente_id', $carne->id)->first();
         }
@@ -114,7 +114,7 @@ class BodegaSeeder extends Seeder
             ]);
         }
         // Comprobamos que la bodega esté en DB
-        $pollo = Bodega::where('slug', 'pollo')->first();
+        $pollo = Ingrediente::where('slug', 'pollo')->first();
         if(isset($pollo)) {
             $pollo_bodega = Bodega::where('ingrediente_id', $pollo->id)->first();
         }

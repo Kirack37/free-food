@@ -39,12 +39,12 @@ class RecetaIngredientesSeeder extends Seeder
         // Inicializamos todos los ingredientes.
         // Sabemos que están creados porque primero se ejecuta el seeder de recetas
         // Aun así, comprobamos y si falta alguna, lanzamos seeder recetas
-        $ensalada_pollo = Receta::where('slug', 'ensalada_de_pollo')->first();
-        $arroz_pollo = Receta::where('slug', 'arroz_con_pollo_y_verduras')->first();
-        $patatas_asadas = Receta::where('slug', 'patatas_asadas_con_queso')->first();
-        $ensalada_tomate_queso = Receta::where('slug', 'ensalada_de_tomate_y_queso')->first();
-        $carne_parrilla = Receta::where('slug', 'carne_a_la_parrilla_con_cebolla')->first();
-        $hamburguesa = Receta::where('slug', 'hamburguesa_completa')->first();
+        $ensalada_pollo = Receta::where('slug', 'ensalada-de-pollo')->first();
+        $arroz_pollo = Receta::where('slug', 'arroz-con-pollo-y-verduras')->first();
+        $patatas_asadas = Receta::where('slug', 'patatas-asadas-con-queso')->first();
+        $ensalada_tomate_queso = Receta::where('slug', 'ensalada-de-tomate-y-queso')->first();
+        $carne_parrilla = Receta::where('slug', 'carne-a-la-parrilla-con-cebolla')->first();
+        $hamburguesa = Receta::where('slug', 'hamburguesa-completa')->first();
         if(!isset($ensalada_pollo) ||!isset($arroz_pollo) || !isset($patatas_asadas)
         ||!isset($ensalada_tomate_queso) || !isset($carne_parrilla) || !isset($hamburguesa)) {
             $this->call([

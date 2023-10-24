@@ -18,7 +18,7 @@ class IngredientesSeeder extends Seeder
         $tomate = Ingrediente::where('slug', 'tomate')->first();
         if(!isset($tomate)) {
             Ingrediente::insert([
-                'name' => 'Tomate',
+                'nombre' => 'Tomate',
                 'slug' => Str::slug('Tomate'),
                 'created_at' => Carbon::now(),
             ]);
@@ -27,7 +27,7 @@ class IngredientesSeeder extends Seeder
         $limon = Ingrediente::where('slug', 'limon')->first();
         if(!isset($limon)) {
             Ingrediente::insert([
-                'name' => 'Limon',
+                'nombre' => 'Limon',
                 'slug' => Str::slug('Limon'),
                 'created_at' => Carbon::now(),
             ]);
@@ -36,7 +36,7 @@ class IngredientesSeeder extends Seeder
         $patata = Ingrediente::where('slug', 'patata')->first();
         if(!isset($patata)) {
             Ingrediente::insert([
-                'name' => 'Patata',
+                'nombre' => 'Patata',
                 'slug' => Str::slug('Patata'),
                 'created_at' => Carbon::now(),
             ]);
@@ -45,7 +45,7 @@ class IngredientesSeeder extends Seeder
         $arroz = Ingrediente::where('slug', 'arroz')->first();
         if(!isset($arroz)) {
             Ingrediente::insert([
-                'name' => 'Arroz',
+                'nombre' => 'Arroz',
                 'slug' => Str::slug('Arroz'),
                 'created_at' => Carbon::now(),
             ]);
@@ -54,7 +54,7 @@ class IngredientesSeeder extends Seeder
         $ketchup = Ingrediente::where('slug', 'ketchup')->first();
         if(!isset($ketchup)) {
             Ingrediente::insert([
-                'name' => 'Ketchup',
+                'nombre' => 'Ketchup',
                 'slug' => Str::slug('Ketchup'),
                 'created_at' => Carbon::now(),
             ]);
@@ -63,7 +63,7 @@ class IngredientesSeeder extends Seeder
         $lechuga = Ingrediente::where('slug', 'lechuga')->first();
         if(!isset($lechuga)) {
             Ingrediente::insert([
-                'name' => 'Lechuga',
+                'nombre' => 'Lechuga',
                 'slug' => Str::slug('Lechuga'),
                 'created_at' => Carbon::now(),
             ]);
@@ -72,7 +72,7 @@ class IngredientesSeeder extends Seeder
         $cebolla = Ingrediente::where('slug', 'cebolla')->first();
         if(!isset($cebolla)) {
             Ingrediente::insert([
-                'name' => 'Cebolla',
+                'nombre' => 'Cebolla',
                 'slug' => Str::slug('Cebolla'),
                 'created_at' => Carbon::now(),
             ]);
@@ -81,7 +81,7 @@ class IngredientesSeeder extends Seeder
         $queso = Ingrediente::where('slug', 'queso')->first();
         if(!isset($queso)) {
             Ingrediente::insert([
-                'name' => 'Queso',
+                'nombre' => 'Queso',
                 'slug' => Str::slug('Queso'),
                 'created_at' => Carbon::now(),
             ]);
@@ -90,7 +90,7 @@ class IngredientesSeeder extends Seeder
         $carne = Ingrediente::where('slug', 'carne')->first();
         if(!isset($carne)) {
             Ingrediente::insert([
-                'name' => 'Carne',
+                'nombre' => 'Carne',
                 'slug' => Str::slug('Carne'),
                 'created_at' => Carbon::now(),
             ]);
@@ -99,7 +99,7 @@ class IngredientesSeeder extends Seeder
         $pollo = Ingrediente::where('slug', 'pollo')->first();
         if(!isset($pollo)) {
             Ingrediente::insert([
-                'name' => 'Pollo',
+                'nombre' => 'Pollo',
                 'slug' => Str::slug('Pollo'),
                 'created_at' => Carbon::now(),
             ]);
