@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('receta_ingredientes')) {
-            Schema::create('receta_ingredientes', function (Blueprint $table) {
+        if (!Schema::hasTable('historial_recetas')) {
+            Schema::create('historial_recetas', function (Blueprint $table) {
                 $table->id();
-                $table->integer('cantidad');
+                $table->integer('realizado')->default(0);
+                $table->integer('cantidad')->default(1); //mejora futura
                 $table->foreignId('receta_id');
-                $table->foreignId('ingrediente_id');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('receta_ingredientes');
+        Schema::dropIfExists('historial_recetas');
     }
 };
