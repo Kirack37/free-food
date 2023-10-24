@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Ingrediente;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class IngredientesSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class IngredientesSeeder extends Seeder
      */
     public function run(): void
     {
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $tomate = Ingrediente::where('slug', 'tomate')->first();
         if(!isset($tomate)) {
             Ingrediente::insert([
@@ -24,7 +23,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $limon = Ingrediente::where('slug', 'limon')->first();
         if(!isset($limon)) {
             Ingrediente::insert([
@@ -33,7 +32,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $patata = Ingrediente::where('slug', 'patata')->first();
         if(!isset($patata)) {
             Ingrediente::insert([
@@ -42,7 +41,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $arroz = Ingrediente::where('slug', 'arroz')->first();
         if(!isset($arroz)) {
             Ingrediente::insert([
@@ -51,7 +50,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $ketchup = Ingrediente::where('slug', 'ketchup')->first();
         if(!isset($ketchup)) {
             Ingrediente::insert([
@@ -60,7 +59,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $lechuga = Ingrediente::where('slug', 'lechuga')->first();
         if(!isset($lechuga)) {
             Ingrediente::insert([
@@ -69,7 +68,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $cebolla = Ingrediente::where('slug', 'cebolla')->first();
         if(!isset($cebolla)) {
             Ingrediente::insert([
@@ -78,7 +77,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $queso = Ingrediente::where('slug', 'queso')->first();
         if(!isset($queso)) {
             Ingrediente::insert([
@@ -87,7 +86,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $carne = Ingrediente::where('slug', 'carne')->first();
         if(!isset($carne)) {
             Ingrediente::insert([
@@ -96,7 +95,7 @@ class IngredientesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la receta esté en DB
+        // Comprobamos que el ingrediente esté en DB
         $pollo = Ingrediente::where('slug', 'pollo')->first();
         if(!isset($pollo)) {
             Ingrediente::insert([
