@@ -20,7 +20,7 @@
                     <a class="nav-link" href="{{ route('home') }}">Historial de Pedidos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Recetas</a>
+                    <a class="nav-link" href="{{ route('recetas.index') }}">Recetas</a>
                 </li>
             </ul>
         </div>

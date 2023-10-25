@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <!-- CSS Files -->
         <link href="{{ asset('assets/demo/demo.css" rel="stylesheet') }}" />
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
         @yield('styles')
     </head>
 

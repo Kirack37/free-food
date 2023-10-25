@@ -19,6 +19,9 @@ class RecetasSeeder extends Seeder
         if(!isset($ensalada_pollo)) {
             Receta::insert([
                 'nombre' => 'Ensalada de pollo',
+                'descripcion' => 'Ensalada de pollo con lechuga, queso, pollo, tomate y unas gotitas de limón.',
+                'tiempo_preparacion' => 15,
+                'dificultad' => 'Fácil',
                 'slug' => Str::slug('Ensalada de pollo'),
                 'created_at' => Carbon::now(),
             ]);
@@ -28,6 +31,9 @@ class RecetasSeeder extends Seeder
         if(!isset($arroz_pollo)) {
             Receta::insert([
                 'nombre' => 'Arroz con pollo y verduras',
+                'descripcion' => 'Arroz frito con pollo, cebolla y tomate. Se puede añadir salsa de soja para darle más gusto.',
+                'tiempo_preparacion' => 20,
+                'dificultad' => 'Media',
                 'slug' => Str::slug('Arroz con pollo y verduras'),
                 'created_at' => Carbon::now(),
             ]);
@@ -37,6 +43,9 @@ class RecetasSeeder extends Seeder
         if(!isset($patatas_asadas)) {
             Receta::insert([
                 'nombre' => 'Patatas asadas con queso',
+                'descripcion' => 'Patatas asadas con ketchup y queso fundido encima. Echas en horno o Airfryer.',
+                'tiempo_preparacion' => 25,
+                'dificultad' => 'Fácil',
                 'slug' => Str::slug('Patatas asadas con queso'),
                 'created_at' => Carbon::now(),
             ]);
@@ -46,6 +55,9 @@ class RecetasSeeder extends Seeder
         if(!isset($ensalada_tomate_queso)) {
             Receta::insert([
                 'nombre' => 'Ensalada de tomate y queso',
+                'descripcion' => 'Saludable ensalada con lechuga, tomate y queso aliñada con sal, pimienta y orégano.',
+                'tiempo_preparacion' => 15,
+                'dificultad' => 'Fácil',
                 'slug' => Str::slug('Ensalada de tomate y queso'),
                 'created_at' => Carbon::now(),
             ]);
@@ -55,6 +67,9 @@ class RecetasSeeder extends Seeder
         if(!isset($carne_parrilla)) {
             Receta::insert([
                 'nombre' => 'Carne a la parrilla con cebolla',
+                'descripcion' => 'Filete de carne echo con cebolla caramelizada, hierbas provenzales y un poco de limón.',
+                'tiempo_preparacion' => 60,
+                'dificultad' => 'Difícil',
                 'slug' => Str::slug('Carne a la parrilla con cebolla'),
                 'created_at' => Carbon::now(),
             ]);
@@ -64,6 +79,9 @@ class RecetasSeeder extends Seeder
         if(!isset($hamburguesa)) {
             Receta::insert([
                 'nombre' => 'Hamburguesa completa',
+                'descripcion' => 'Hamburguesa con carne, tomate, queso, lechuga y ketchup.',
+                'tiempo_preparacion' => 30,
+                'dificultad' => 'Media',
                 'slug' => Str::slug('Hamburguesa completa'),
                 'created_at' => Carbon::now(),
             ]);

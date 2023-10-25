@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\HistorialRecetas;
+use App\Models\Receta;
 
 class HomeController extends Controller
 {
@@ -35,8 +36,7 @@ class HomeController extends Controller
 
     private function elegirRecetaAleatoria()
     {
-        // TODO: LLamar de base de datos
-        $recetas = ['Receta1', 'Receta2', 'Receta3', 'Receta4', 'Receta5', 'Receta6'];
+        $recetas = Receta::all()->toArray();
         return $recetas[array_rand($recetas)];
     }
 

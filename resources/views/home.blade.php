@@ -63,23 +63,3 @@
     </script>
 @endsection
 
-@section('styles')
-    <style>
-        body {
-            padding-top: 4.5rem;
-            background-color: #f5f5f5;
-        }
-
-        .btn-dark {
-            background-color: #343a40;
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 0;
-                /* Elimina el espacio superior en dispositivos pequeños */
-            }
-        }
-    </style>
-@endsection

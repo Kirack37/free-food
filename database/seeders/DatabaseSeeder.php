@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             RecetasSeeder::class,
             RecetaIngredientesSeeder::class,
             BodegaSeeder::class,
+            ImagenesSeeder::class,
         ]);
     }
 }

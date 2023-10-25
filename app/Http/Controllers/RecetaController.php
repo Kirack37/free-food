@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
 class RecetaController extends Controller
@@ -11,7 +12,9 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        //
+        $recetas = Receta::all();
+
+        return view('recetas.index', compact('recetas'));
     }
 
     /**
