@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bodega;
+use App\Models\Receta;
 use Illuminate\Http\Request;
 use App\Models\HistorialRecetas;
-use App\Models\Receta;
+use App\Models\RecetaIngrediente;
 
 class HomeController extends Controller
 {
@@ -29,6 +31,7 @@ class HomeController extends Controller
 
         // Lógica para comprobar si disponemos de los ingredientes
         $ingredientesSuficientes = $this->comprobarIngredientes($recetaElegida);
+        dd($ingredientesSuficientes);
 
         // Devolvemos la respuesta según haya o no ingredientes
         return response()->json(['receta' => $recetaElegida, 'ingredientesSuficientes' => $ingredientesSuficientes]);
@@ -43,6 +46,19 @@ class HomeController extends Controller
     private function comprobarIngredientes($receta)
     {
         // Lógica para comprobar si tenemos los ingredientes necesarios
+        $ingredientesReceta = RecetaIngrediente::where('receta_id', $receta)->get();
+        if(isset($ingredientesReceta)) {
+            // Comprobamos en la bodega
+            foreach($ingredientesReceta as $ingredienteReceta) {
+                $ingredienteBodega = Bodega::where('ingrediente_id', $ingredienteReceta->id)->first();
+                // Comprobamos que el ingrediente exista en la bodega
+                if(isset($ingredienteBodega)) {
+                    if($ingredienteReceta->cantidad < $ingredienteBodega->cantidad_disponible) {
+                        return false;
+                    }
+                }
+            }
+        }
         // Devolvemos true si tenemos los ingredientes, false de lo contrario
         return true;
     }

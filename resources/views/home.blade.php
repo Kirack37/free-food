@@ -12,7 +12,7 @@
 
         <!-- Sección de Historial de Pedidos -->
         <section class="mt-4">
-            <h2>Historial de Pedidos</h2>
+            <h2>Pedidos en progreso</h2>
             <ul class="list-group historial_pedidos" id="historialPedidos">
                 @if ($historialPedidos && count($historialPedidos) > 0)
                     @foreach ($historialPedidos as $pedido)

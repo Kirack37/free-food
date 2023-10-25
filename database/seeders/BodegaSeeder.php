@@ -98,7 +98,7 @@ class BodegaSeeder extends Seeder
         }
         if(!isset($queso_bodega) && isset($queso)) {
             Bodega::insert([
-                'ingrediente_id' => $tomate->id,
+                'ingrediente_id' => $queso->id,
                 'created_at' => Carbon::now(),
             ]);
         }

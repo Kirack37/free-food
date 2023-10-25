@@ -18,4 +18,8 @@ class RecetaIngrediente extends Model
     {
         return $this->belongsTo(Ingrediente::class);
     }
+        public function bodega()
+    {
+        return $this->belongsTo(Bodega::class, 'ingrediente_id');
+    }
 }

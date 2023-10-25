@@ -11,8 +11,8 @@ class Bodega extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'bodega';
-    public function ingrediente()
+    public function recetaIngrediente()
     {
-        return $this->belongsTo(Ingrediente::class);
+        return $this->hasMany(RecetaIngrediente::class, 'ingrediente_id');
     }
 }
