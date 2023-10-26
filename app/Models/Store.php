@@ -11,8 +11,8 @@ class Store extends Model
 {
     use HasFactory, SoftDeletes;
     protected $table = 'store';
-    public function recipeIngredient()
+    public function ingredient()
     {
-        return $this->hasMany(RecipeIngredient::class, 'ingredient_id');
+        return $this->hasOne(Ingredient::class, 'id');
     }
 }

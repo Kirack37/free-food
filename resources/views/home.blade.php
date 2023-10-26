@@ -13,21 +13,100 @@
         <!-- Sección de Historial de Pedidos -->
         <section class="mt-4">
             <h2>Orders in progress</h2>
-            <ul class="list-group historial_orders" id="ordersHistory">
-                @if ($ordersHistory && count($ordersHistory) > 0)
-                    @foreach ($ordersHistory as $order)
-                        <li class="list-group-item">{{ $order }}</li>
-                    @endforeach
-                @else
-                    <p>There's no orders in progress</p>
-                @endif
-            </ul>
+            <table id="ordersTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Order name</th>
+                        <th>Order hour of creation</th>
+                        <th>Order quantity</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersHistory"></tbody>
+            </table>
+        </section>
+        <!-- Sección de ingredientes -->
+        <section class="mt-4">
+            <div class="row" id="ingredientsContainer"></div>
         </section>
     </div>
 @endsection
 
 @section('extra-js')
     <script>
+        $(document).ready(function() {
+            // Inicializamos la tabla con DataTables
+            const ordersTable = $('#ordersTable').DataTable({
+                columns: [{
+                        data: 'name',
+                        title: 'Order name'
+                    },
+                    {
+                        data: 'created_at',
+                        title: 'Order hour of creation'
+                    },
+                    {
+                        data: 'quantity',
+                        title: 'Order quantity'
+                    },
+                ],
+                language: {
+                    emptyTable: "No orders in progress at the moment",
+                    infoEmpty: "No orders available",
+                },
+            });
+
+            function updateOrdersHistory() {
+                // Hacemos una solicitud al servidor para obtener el nuevo historial de órdenes
+                axios.get('/get-orders-history')
+                    .then(response => {
+                        const ordersHistory = response.data.ordersHistory;
+
+                        // Destruimos la tabla actual antes de recrearla
+                        // ordersTable.destroy();
+
+                        // Limpiamos y recreamos la tabla con los nuevos datos
+                        ordersTable.clear().rows.add(ordersHistory).draw();
+                    })
+                    .catch(error => {
+                        console.error('Error recieving orders history', error);
+                    });
+            }
+
+            function updateIngredients() {
+                axios.get('/get-ingredients')
+                    .then(response => {
+                        // Limpiamos el contenedor antes de agregar los nuevos ingredientes
+                        $('#ingredientsContainer').empty();
+                        console.log(response)
+                        $.each(response.data, function(index, data) {
+                            $('#ingredientsContainer').append(`
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${data.ingredient.name}</h5>
+                                <p class="card-description">Quantity available: <strong>${data.quantity_available}</strong></p>
+                                <img class="card-img-top" src="{{ asset('${data.ingredient.image_path}') }}" alt="${data.ingredient.name}">
+                            </div>
+                        </div>
+                    </div>
+                `);
+                        });
+                    });
+            }
+
+            // Actualizamos automáticamente cada 30 segundos
+            setInterval(updateIngredients, 30000);
+
+            // Ejecutamos la actualización al cargar la página
+            updateIngredients();
+
+            // Actualizamos automáticamente cada 5 segundos
+            setInterval(updateOrdersHistory, 3000);
+
+            // Ejecutamos la actualización al cargar la página
+            updateOrdersHistory();
+        });
+
         function orderDish() {
             // Llamada Axios para pedir platos
             axios.post('/order-dish')
@@ -39,27 +118,5 @@
                     console.error('Error when ordering the dish', error);
                 });
         }
-
-        function updateOrdersHistory() {
-            // Hacemos una solicitud al servidor para obtener el nuevo historial de orders
-            axios.get('{{ route('orders-history.index') }}')
-                .then(response => {
-                    const ordersHistoryElement = $('#ordersHistory');
-
-                    $.each(response.data.ordersHistory, function(index, item) {
-                        ordersHistoryElement.append('<li class="list-group-item">' + item.nombre + '</li>');
-                    });
-                })
-                .catch(error => {
-                    console.error('Error recieving orders history', error);
-                });
-        }
-
-        // Actualizamos automáticamente cada 30 segundos
-        setInterval(updateOrdersHistory, 30000);
-
-        // Ejecutamos la actualización al cargar la página
-        updateOrdersHistory();
     </script>
 @endsection
-

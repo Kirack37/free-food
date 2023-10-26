@@ -17,10 +17,7 @@
                     <a class="nav-link" href="{{ route('store.index') }}">Store</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Market Place</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Orders history</a>
+                    <a class="nav-link" href="{{ route('orders.index') }}">Orders history</a>
                 </li>
             </ul>
         </div>
