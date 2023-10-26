@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Ingrediente;
+use App\Models\Ingredient;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Bodega extends Model
+class Store extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'bodega';
-    public function recetaIngrediente()
+    protected $table = 'store';
+    public function recipeIngredient()
     {
-        return $this->hasMany(RecetaIngrediente::class, 'ingrediente_id');
+        return $this->hasMany(RecipeIngredient::class, 'ingredient_id');
     }
 }

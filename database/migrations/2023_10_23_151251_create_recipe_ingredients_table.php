@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('bodega')) {
-            Schema::create('bodega', function (Blueprint $table) {
+        if (!Schema::hasTable('recipe_ingredients')) {
+            Schema::create('recipe_ingredients', function (Blueprint $table) {
                 $table->id();
-                $table->integer('cantidad_disponible')->default(5);
-                $table->foreignId('ingrediente_id');
+                $table->integer('quantity');
+                $table->foreignId('recipe_id');
+                $table->foreignId('ingredient_id');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bodegas');
+        Schema::dropIfExists('recipe_ingredients');
     }
 };

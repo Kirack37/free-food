@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImagenesToRecetasTable extends Migration
+class AddImagenesToRecipesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddImagenesToRecetasTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('recetas')) {
-            Schema::table('recetas', function (Blueprint $table) {
-                $table->string('image_path')->nullable()->after('descripcion');
+        if (Schema::hasTable('recipes')) {
+            Schema::table('recipes', function (Blueprint $table) {
+                $table->string('image_path')->nullable()->after('description');
             });
         }
     }
@@ -27,7 +27,7 @@ class AddImagenesToRecetasTable extends Migration
      */
     public function down()
     {
-        Schema::table('recetas', function (Blueprint $table) {
+        Schema::table('recipes', function (Blueprint $table) {
             $table->dropColumn('image_path');
         });
     }

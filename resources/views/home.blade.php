@@ -5,21 +5,21 @@
 @section('content')
     <!-- Contenido principal -->
     <div class="container custom-content">
-        <h1 class="mb-4">Comedor Social</h1>
+        <h1 class="mb-4">Soup Kitchen</h1>
 
         <!-- Botón para pedir un plato -->
-        <button class="btn btn-dark" onclick="pedirPlato()">Pedir Plato</button>
+        <button class="btn btn-dark" onclick="orderDish()">Order a dish</button>
 
         <!-- Sección de Historial de Pedidos -->
         <section class="mt-4">
-            <h2>Pedidos en progreso</h2>
-            <ul class="list-group historial_pedidos" id="historialPedidos">
-                @if ($historialPedidos && count($historialPedidos) > 0)
-                    @foreach ($historialPedidos as $pedido)
-                        <li class="list-group-item">{{ $pedido }}</li>
+            <h2>Orders in progress</h2>
+            <ul class="list-group historial_orders" id="ordersHistory">
+                @if ($ordersHistory && count($ordersHistory) > 0)
+                    @foreach ($ordersHistory as $order)
+                        <li class="list-group-item">{{ $order }}</li>
                     @endforeach
                 @else
-                    <p>No hay pedidos</p>
+                    <p>There's no orders in progress</p>
                 @endif
             </ul>
         </section>
@@ -28,7 +28,7 @@
 
 @section('extra-js')
     <script>
-        function pedirPlato() {
+        function orderDish() {
             // Llamada Axios para pedir platos
             axios.post('/pedir-plato')
                 .then(response => {
@@ -40,26 +40,26 @@
                 });
         }
 
-        function actualizarHistorialPedidos() {
-            // Hacemos una solicitud al servidor para obtener el nuevo historial de pedidos
-            axios.get('{{ route('historial-pedidos.index') }}')
+        function updateOrdersHistory() {
+            // Hacemos una solicitud al servidor para obtener el nuevo historial de orders
+            axios.get('{{ route('historial-orders.index') }}')
                 .then(response => {
-                    const historialPedidosElement = $('#historialPedidos');
+                    const ordersHistoryElement = $('#ordersHistory');
 
-                    $.each(response.data.historialPedidos, function(index, item) {
-                        historialPedidosElement.append('<li class="list-group-item">' + item.nombre + '</li>');
+                    $.each(response.data.ordersHistory, function(index, item) {
+                        ordersHistoryElement.append('<li class="list-group-item">' + item.nombre + '</li>');
                     });
                 })
                 .catch(error => {
-                    console.error('Error al obtener el historial de pedidos', error);
+                    console.error('Error recieving orders history', error);
                 });
         }
 
         // Actualizamos automáticamente cada 30 segundos
-        setInterval(actualizarHistorialPedidos, 30000);
+        setInterval(updateOrdersHistory, 30000);
 
         // Ejecutamos la actualización al cargar la página
-        actualizarHistorialPedidos();
+        updateOrdersHistory();
     </script>
 @endsection
 

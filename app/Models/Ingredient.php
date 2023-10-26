@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Ingrediente extends Model
+class Ingredient extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = 'ingredientes';
-    public function recetas()
+    protected $table = 'ingredients';
+    public function recipes()
     {
-        return $this->belongsToMany(Receta::class, 'receta_ingredientes')->withPivot('cantidad');
+        return $this->belongsToMany(Recipe::class, 'recipe_ingredients')->withPivot('cantidad');
     }
 }

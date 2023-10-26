@@ -3,104 +3,104 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
-use App\Models\Ingrediente;
+use App\Models\Ingredient;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class IngredientesSeeder extends Seeder
+class IngredientsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Comprobamos que el ingrediente esté en DB
-        $tomate = Ingrediente::where('slug', 'tomate')->first();
-        if(!isset($tomate)) {
-            Ingrediente::insert([
-                'nombre' => 'Tomate',
-                'slug' => Str::slug('Tomate'),
+        // Comprobamos que el ingredient esté en DB
+        $tomato = Ingredient::where('slug', 'tomato')->first();
+        if(!isset($tomato)) {
+            Ingredient::insert([
+                'nombre' => 'Tomato',
+                'slug' => Str::slug('Tomato'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $limon = Ingrediente::where('slug', 'limon')->first();
-        if(!isset($limon)) {
-            Ingrediente::insert([
-                'nombre' => 'Limon',
-                'slug' => Str::slug('Limon'),
+        // Comprobamos que el ingredient esté en DB
+        $lemon = Ingredient::where('slug', 'lemon')->first();
+        if(!isset($lemon)) {
+            Ingredient::insert([
+                'nombre' => 'Lemon',
+                'slug' => Str::slug('Lemon'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $patata = Ingrediente::where('slug', 'patata')->first();
-        if(!isset($patata)) {
-            Ingrediente::insert([
-                'nombre' => 'Patata',
-                'slug' => Str::slug('Patata'),
+        // Comprobamos que el ingredient esté en DB
+        $potato = Ingredient::where('slug', 'potato')->first();
+        if(!isset($potato)) {
+            Ingredient::insert([
+                'nombre' => 'Potato',
+                'slug' => Str::slug('Potato'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $arroz = Ingrediente::where('slug', 'arroz')->first();
-        if(!isset($arroz)) {
-            Ingrediente::insert([
-                'nombre' => 'Arroz',
-                'slug' => Str::slug('Arroz'),
+        // Comprobamos que el ingredient esté en DB
+        $rice = Ingredient::where('slug', 'rice')->first();
+        if(!isset($rice)) {
+            Ingredient::insert([
+                'nombre' => 'Rice',
+                'slug' => Str::slug('Rice'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $ketchup = Ingrediente::where('slug', 'ketchup')->first();
+        // Comprobamos que el ingredient esté en DB
+        $ketchup = Ingredient::where('slug', 'ketchup')->first();
         if(!isset($ketchup)) {
-            Ingrediente::insert([
+            Ingredient::insert([
                 'nombre' => 'Ketchup',
                 'slug' => Str::slug('Ketchup'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $lechuga = Ingrediente::where('slug', 'lechuga')->first();
-        if(!isset($lechuga)) {
-            Ingrediente::insert([
-                'nombre' => 'Lechuga',
-                'slug' => Str::slug('Lechuga'),
+        // Comprobamos que el ingredient esté en DB
+        $lettuce = Ingredient::where('slug', 'lettuce')->first();
+        if(!isset($lettuce)) {
+            Ingredient::insert([
+                'nombre' => 'Lettuce',
+                'slug' => Str::slug('Lettuce'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $cebolla = Ingrediente::where('slug', 'cebolla')->first();
-        if(!isset($cebolla)) {
-            Ingrediente::insert([
-                'nombre' => 'Cebolla',
-                'slug' => Str::slug('Cebolla'),
+        // Comprobamos que el ingredient esté en DB
+        $onion = Ingredient::where('slug', 'onion')->first();
+        if(!isset($onion)) {
+            Ingredient::insert([
+                'nombre' => 'Onion',
+                'slug' => Str::slug('Onion'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $queso = Ingrediente::where('slug', 'queso')->first();
-        if(!isset($queso)) {
-            Ingrediente::insert([
-                'nombre' => 'Queso',
-                'slug' => Str::slug('Queso'),
+        // Comprobamos que el ingredient esté en DB
+        $cheese = Ingredient::where('slug', 'cheese')->first();
+        if(!isset($cheese)) {
+            Ingredient::insert([
+                'nombre' => 'Cheese',
+                'slug' => Str::slug('Cheese'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $carne = Ingrediente::where('slug', 'carne')->first();
-        if(!isset($carne)) {
-            Ingrediente::insert([
-                'nombre' => 'Carne',
-                'slug' => Str::slug('Carne'),
+        // Comprobamos que el ingredient esté en DB
+        $meat = Ingredient::where('slug', 'meat')->first();
+        if(!isset($meat)) {
+            Ingredient::insert([
+                'nombre' => 'Meat',
+                'slug' => Str::slug('Meat'),
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingrediente esté en DB
-        $pollo = Ingrediente::where('slug', 'pollo')->first();
-        if(!isset($pollo)) {
-            Ingrediente::insert([
-                'nombre' => 'Pollo',
-                'slug' => Str::slug('Pollo'),
+        // Comprobamos que el ingredient esté en DB
+        $chicken = Ingredient::where('slug', 'chicken')->first();
+        if(!isset($chicken)) {
+            Ingredient::insert([
+                'nombre' => 'Chicken',
+                'slug' => Str::slug('Chicken'),
                 'created_at' => Carbon::now(),
             ]);
         }

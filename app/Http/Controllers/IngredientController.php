@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Receta;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
-class RecetaController extends Controller
+class IngredientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $recetas = Receta::all();
+        $ingredients = Ingredient::all();
 
-        return view('recetas.index', compact('recetas'));
+        return view('ingredients.index', compact('ingredients'));
     }
 
     /**

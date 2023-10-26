@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HistorialRecetas extends Model
+class OrderHistory extends Model
 {
     use HasFactory;
 
-    public function receta()
+    protected $table = 'orders_history';
+
+    public function recipe()
     {
-        return $this->belongsTo(Receta::class);
+        return $this->belongsTo(Recipe::class);
     }
 }

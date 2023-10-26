@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingrediente;
 use Illuminate\Http\Request;
 
-class IngredienteController extends Controller
+class OrderHistoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $ingredientes = Ingrediente::all();
-
-        return view('ingredientes.index', compact('ingredientes'));
+        //
     }
 
     /**

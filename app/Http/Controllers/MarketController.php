@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class MercadoController extends Controller
+class MarketController extends Controller
 {
-    public function comprarIngrediente($ingrediente)
+    public function comprarIngredient($ingredient)
     {
         // Realizamos la solicitud a la API proporcionada
         $response = Http::get('https://recruitment.alegra.com/api/farmers-market/buy', [
-            'ingredient' => $ingrediente,
+            'ingredient' => $ingredient,
         ]);
 
         // Devolvemos la respuesta en formato json

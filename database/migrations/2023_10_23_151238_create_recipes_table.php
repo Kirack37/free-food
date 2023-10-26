@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('recetas')) {
-            Schema::create('recetas', function (Blueprint $table) {
+        if (!Schema::hasTable('recipes')) {
+            Schema::create('recipes', function (Blueprint $table) {
                 $table->id();
-                $table->string('nombre');
+                $table->string('name');
                 $table->string('slug')->unique();
-                $table->text('descripcion')->nullable(); // mejora futura
-                $table->integer('tiempo_preparacion')->nullable(); // mejora futura
-                $table->string('dificultad')->nullable(); // mejora futura
+                $table->text('description')->nullable(); // mejora futura
+                $table->integer('preparation_time')->nullable(); // mejora futura
+                $table->string('difficulty')->nullable(); // mejora futura
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recetas');
+        Schema::dropIfExists('recipes');
     }
 };

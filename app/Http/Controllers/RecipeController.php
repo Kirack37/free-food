@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 
-class HistorialRecetasController extends Controller
+class RecipeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $recipes = Recipe::all();
+
+        return view('recipes.index', compact('recipes'));
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddImagenesToIngredientesTable extends Migration
+class AddImagenesToIngredientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddImagenesToIngredientesTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('ingredientes')) {
-            Schema::table('ingredientes', function (Blueprint $table) {
+        if (Schema::hasTable('ingredients')) {
+            Schema::table('ingredients', function (Blueprint $table) {
                 $table->string('image_path')->nullable()->after('slug');
             });
         }
@@ -27,7 +27,7 @@ class AddImagenesToIngredientesTable extends Migration
      */
     public function down()
     {
-        Schema::table('recetas', function (Blueprint $table) {
+        Schema::table('recipes', function (Blueprint $table) {
             $table->dropColumn('image_path');
         });
     }

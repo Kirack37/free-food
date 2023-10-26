@@ -1,12 +1,12 @@
 <?php
 
-use App\Models\RecetaIngrediente;
+use App\Models\RecipeIngredient;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BodegaController;
-use App\Http\Controllers\HistorialRecetasController;
-use App\Http\Controllers\RecetaController;
-use App\Http\Controllers\IngredienteController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\OrderHistoryController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +33,11 @@ Route::middleware([
     })->name('dashboard');
     // Escritorio general
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::post('/pedir-plato', [HomeController::class, 'pedirPlato']);
-    Route::resource('recetas', RecetaController::class);
-    Route::resource('ingredientes', IngredienteController::class);
-    Route::resource('bodega', BodegaController::class);
-    Route::resource('receta_ingredientes', RecetaIngrediente::class);
-    Route::get('/historial-pedidos', [HomeController::class, 'index'])->name('historial-pedidos.index');
-    Route::resource('historial_recetas', HistorialRecetasController::class);
+    Route::post('/pedir-plato', [HomeController::class, 'orderDish']);
+    Route::resource('recipes', RecipeController::class);
+    Route::resource('ingredients', IngredientController::class);
+    Route::resource('store', StoreController::class);
+    Route::resource('recipe_ingredients', RecipeIngredient::class);
+    Route::get('/historial-orders', [HomeController::class, 'index'])->name('historial-orders.index');
+    Route::resource('historial_recipes', OrderHistoryController::class);
 });

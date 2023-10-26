@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/pedir-plato',
-        '/obtener-historial-pedidos',
+        '/obtener-historial-orders',
     ];
 }

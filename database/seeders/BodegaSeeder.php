@@ -3,124 +3,124 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
-use App\Models\Bodega;
-use App\Models\Ingrediente;
+use App\Models\Store;
+use App\Models\Ingredient;
 use Illuminate\Database\Seeder;
 
-class BodegaSeeder extends Seeder
+class StoreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Comprobamos que el Bodega_bodega esté en DB
-        $tomate = Ingrediente::where('slug', 'tomate')->first();
-        if(isset($tomate)) {
-            $tomate_bodega = Bodega::where('ingrediente_id', $tomate->id)->first();
+        // Comprobamos que el Store_store esté en DB
+        $tomato = Ingredient::where('slug', 'tomato')->first();
+        if(isset($tomato)) {
+            $tomato_store = Store::where('ingredient_id', $tomato->id)->first();
         }
-        if(!isset($tomate_bodega) && isset($tomate)) {
-            Bodega::insert([
-                'ingrediente_id' => $tomate->id,
+        if(!isset($tomato_store) && isset($tomato)) {
+            Store::insert([
+                'ingredient_id' => $tomato->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $limon = Ingrediente::where('slug', 'limon')->first();
-        if(isset($limon)) {
-            $limon_bodega = Bodega::where('ingrediente_id', $limon->id)->first();
+        // Comprobamos que la store esté en DB
+        $lemon = Ingredient::where('slug', 'lemon')->first();
+        if(isset($lemon)) {
+            $lemon_store = Store::where('ingredient_id', $lemon->id)->first();
         }
-        if(!isset($limon_bodega) && isset($limon)) {
-            Bodega::insert([
-                'ingrediente_id' => $limon->id,
+        if(!isset($lemon_store) && isset($lemon)) {
+            Store::insert([
+                'ingredient_id' => $lemon->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $patata = Ingrediente::where('slug', 'patata')->first();
-        if(isset($patata)) {
-            $patata_bodega = Bodega::where('ingrediente_id', $patata->id)->first();
+        // Comprobamos que la store esté en DB
+        $potato = Ingredient::where('slug', 'potato')->first();
+        if(isset($potato)) {
+            $potato_store = Store::where('ingredient_id', $potato->id)->first();
         }
-        if(!isset($patata_bodega) && isset($patata)) {
-            Bodega::insert([
-                'ingrediente_id' => $patata->id,
+        if(!isset($potato_store) && isset($potato)) {
+            Store::insert([
+                'ingredient_id' => $potato->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $arroz = Ingrediente::where('slug', 'arroz')->first();
-        if(isset($arroz)) {
-            $arroz_bodega = Bodega::where('ingrediente_id', $arroz->id)->first();
+        // Comprobamos que la store esté en DB
+        $rice = Ingredient::where('slug', 'rice')->first();
+        if(isset($rice)) {
+            $rice_store = Store::where('ingredient_id', $rice->id)->first();
         }
-        if(!isset($arroz_bodega) && isset($arroz)) {
-            Bodega::insert([
-                'ingrediente_id' => $arroz->id,
+        if(!isset($rice_store) && isset($rice)) {
+            Store::insert([
+                'ingredient_id' => $rice->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $ketchup = Ingrediente::where('slug', 'ketchup')->first();
+        // Comprobamos que la store esté en DB
+        $ketchup = Ingredient::where('slug', 'ketchup')->first();
         if(isset($ketchup)) {
-            $ketchup_bodega = Bodega::where('ingrediente_id', $ketchup->id)->first();
+            $ketchup_store = Store::where('ingredient_id', $ketchup->id)->first();
         }
-        if(!isset($ketchup_bodega) && isset($ketchup)) {
-            Bodega::insert([
-                'ingrediente_id' => $ketchup->id,
+        if(!isset($ketchup_store) && isset($ketchup)) {
+            Store::insert([
+                'ingredient_id' => $ketchup->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $lechuga = Ingrediente::where('slug', 'lechuga')->first();
-        if(isset($lechuga)) {
-            $lechuga_bodega = Bodega::where('ingrediente_id', $lechuga->id)->first();
+        // Comprobamos que la store esté en DB
+        $lettuce = Ingredient::where('slug', 'lettuce')->first();
+        if(isset($lettuce)) {
+            $lettuce_store = Store::where('ingredient_id', $lettuce->id)->first();
         }
-        if(!isset($lechuga_bodega) && isset($lechuga)) {
-            Bodega::insert([
-                'ingrediente_id' => $lechuga->id,
+        if(!isset($lettuce_store) && isset($lettuce)) {
+            Store::insert([
+                'ingredient_id' => $lettuce->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $cebolla = Ingrediente::where('slug', 'cebolla')->first();
-        if(isset($cebolla)) {
-            $cebolla_bodega = Bodega::where('ingrediente_id', $cebolla->id)->first();
+        // Comprobamos que la store esté en DB
+        $onion = Ingredient::where('slug', 'onion')->first();
+        if(isset($onion)) {
+            $onion_store = Store::where('ingredient_id', $onion->id)->first();
         }
-        if(!isset($cebolla_bodega) && isset($cebolla)) {
-            Bodega::insert([
-                'ingrediente_id' => $cebolla->id,
+        if(!isset($onion_store) && isset($onion)) {
+            Store::insert([
+                'ingredient_id' => $onion->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $queso = Ingrediente::where('slug', 'queso')->first();
-        if(isset($queso)) {
-            $queso_bodega = Bodega::where('ingrediente_id', $queso->id)->first();
+        // Comprobamos que la store esté en DB
+        $cheese = Ingredient::where('slug', 'cheese')->first();
+        if(isset($cheese)) {
+            $cheese_store = Store::where('ingredient_id', $cheese->id)->first();
         }
-        if(!isset($queso_bodega) && isset($queso)) {
-            Bodega::insert([
-                'ingrediente_id' => $queso->id,
+        if(!isset($cheese_store) && isset($cheese)) {
+            Store::insert([
+                'ingredient_id' => $cheese->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $carne = Ingrediente::where('slug', 'carne')->first();
-        if(isset($carne)) {
-            $carne_bodega = Bodega::where('ingrediente_id', $carne->id)->first();
+        // Comprobamos que la store esté en DB
+        $meat = Ingredient::where('slug', 'meat')->first();
+        if(isset($meat)) {
+            $meat_store = Store::where('ingredient_id', $meat->id)->first();
         }
-        if(!isset($carne_bodega) && isset($carne)) {
-            Bodega::insert([
-                'ingrediente_id' => $carne->id,
+        if(!isset($meat_store) && isset($meat)) {
+            Store::insert([
+                'ingredient_id' => $meat->id,
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la bodega esté en DB
-        $pollo = Ingrediente::where('slug', 'pollo')->first();
-        if(isset($pollo)) {
-            $pollo_bodega = Bodega::where('ingrediente_id', $pollo->id)->first();
+        // Comprobamos que la store esté en DB
+        $chicken = Ingredient::where('slug', 'chicken')->first();
+        if(isset($chicken)) {
+            $chicken_store = Store::where('ingredient_id', $chicken->id)->first();
         }
-        if(!isset($pollo_bodega) && isset($pollo)) {
-            Bodega::insert([
-                'ingrediente_id' => $pollo->id,
+        if(!isset($chicken_store) && isset($chicken)) {
+            Store::insert([
+                'ingredient_id' => $chicken->id,
                 'created_at' => Carbon::now(),
             ]);
         }

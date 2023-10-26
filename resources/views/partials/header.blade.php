@@ -8,19 +8,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('ingredientes.index') }}">Ingredientes</a>
+                    <a class="nav-link" href="{{ route('ingredients.index') }}">Ingredients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('recetas.index') }}">Recetas</a>
+                    <a class="nav-link" href="{{ route('recipes.index') }}">Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('bodega.index') }}">Bodega</a>
+                    <a class="nav-link" href="{{ route('store.index') }}">Store</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Plaza de Mercado</a>
+                    <a class="nav-link" href="{{ route('home') }}">Market Place</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Historial de Pedidos</a>
+                    <a class="nav-link" href="{{ route('home') }}">Orders history</a>
                 </li>
             </ul>
         </div>

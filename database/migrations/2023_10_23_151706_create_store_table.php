@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        if (!Schema::hasTable('ingredientes')) {
-            Schema::create('ingredientes', function (Blueprint $table) {
+        if (!Schema::hasTable('store')) {
+            Schema::create('store', function (Blueprint $table) {
                 $table->id();
-                $table->string('nombre');
-                $table->string('slug')->unique();
+                $table->integer('available_quantity')->default(5);
+                $table->foreignId('ingredient_id');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ingredientes');
+        Schema::dropIfExists('stores');
     }
 };
