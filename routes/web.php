@@ -1,6 +1,12 @@
 <?php
 
+use App\Models\RecipeIngredient;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\OrderHistoryController;
+use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +31,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    // Escritorio general
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::post('/order-dish', [HomeController::class, 'orderDish']);
+    Route::resource('recipes', RecipeController::class);
+    Route::resource('ingredients', IngredientController::class);
+    Route::resource('store', StoreController::class);
+    Route::resource('recipe_ingredients', RecipeIngredient::class);
+    Route::get('/orders-history', [HomeController::class, 'index'])->name('orders-history.index');
+    Route::resource('orders_history', OrderHistoryController::class);
 });
