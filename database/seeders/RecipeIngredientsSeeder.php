@@ -39,182 +39,182 @@ class RecipeIngredientsSeeder extends Seeder
         // Inicializamos todos los ingredients.
         // Sabemos que están creados porque primero se ejecuta el seeder de recipes
         // Aun así, comprobamos y si falta alguna, lanzamos seeder recipes
-        $salad_chicken = Recipe::where('slug', 'chicken-salad')->first();
-        $rice_chicken = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
-        $potatos_asadas = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
-        $salad_tomato_cheese = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
-        $meat_parrilla = Recipe::where('slug', 'grilled-meat-with-onion')->first();
-        $hamburguesa = Recipe::where('slug', 'burguer')->first();
-        if(!isset($salad_chicken) ||!isset($rice_chicken) || !isset($potatos_asadas)
-        ||!isset($salad_tomato_cheese) || !isset($meat_parrilla) || !isset($hamburguesa)) {
+        $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
+        $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
+        $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
+        $tomato_salad = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
+        $grilled_meat = Recipe::where('slug', 'grilled-meat-with-onion')->first();
+        $burguer = Recipe::where('slug', 'burguer')->first();
+        if(!isset($chicken_salad) ||!isset($chicken_rice) || !isset($roasted_potatoes)
+        ||!isset($tomato_salad) || !isset($grilled_meat) || !isset($burguer)) {
             $this->call([
                 RecipesSeeder::class,
             ]);
         }
 
-        $salad_chicken_db = RecipeIngredient::where('recipe_id', $salad_chicken->id)->first();
+        $chicken_salad_db = RecipeIngredient::where('recipe_id', $chicken_salad->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
-        if(!isset($salad_chicken_db)) {
+        if(!isset($chicken_salad_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $salad_chicken->id,
+                'recipe_id' => $chicken_salad->id,
                 'ingredient_id' => $chicken->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $salad_chicken->id,
+                'recipe_id' => $chicken_salad->id,
                 'ingredient_id' => $lettuce->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $salad_chicken->id,
+                'recipe_id' => $chicken_salad->id,
                 'ingredient_id' => $lemon->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $salad_chicken->id,
+                'recipe_id' => $chicken_salad->id,
                 'ingredient_id' => $onion->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }
 
-        $rice_chicken_db = RecipeIngredient::where('recipe_id', $rice_chicken->id)->first();
+        $chicken_rice_db = RecipeIngredient::where('recipe_id', $chicken_rice->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
-        if(!isset($rice_chicken_db)) {
+        if(!isset($chicken_rice_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $rice_chicken->id,
+                'recipe_id' => $chicken_rice->id,
                 'ingredient_id' => $chicken->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $rice_chicken->id,
+                'recipe_id' => $chicken_rice->id,
                 'ingredient_id' => $rice->id,
-                'cantidad' => 3,
+                'quantity' => 3,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $rice_chicken->id,
+                'recipe_id' => $chicken_rice->id,
                 'ingredient_id' => $tomato->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $rice_chicken->id,
+                'recipe_id' => $chicken_rice->id,
                 'ingredient_id' => $onion->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }
-        $potatos_asadas_db = RecipeIngredient::where('recipe_id', $potatos_asadas->id)->first();
+        $roasted_potatoes_db = RecipeIngredient::where('recipe_id', $roasted_potatoes->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
-        if(!isset($potatos_asadas_db)) {
+        if(!isset($roasted_potatoes_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $potatos_asadas->id,
+                'recipe_id' => $roasted_potatoes->id,
                 'ingredient_id' => $potato->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $potatos_asadas->id,
+                'recipe_id' => $roasted_potatoes->id,
                 'ingredient_id' => $cheese->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $potatos_asadas->id,
+                'recipe_id' => $roasted_potatoes->id,
                 'ingredient_id' => $ketchup->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }
 
-        $salad_tomato_db = RecipeIngredient::where('recipe_id', $salad_tomato_cheese->id)->first();
+        $salad_tomato_db = RecipeIngredient::where('recipe_id', $tomato_salad->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
         if(!isset($salad_tomato_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $salad_tomato_cheese->id,
+                'recipe_id' => $tomato_salad->id,
                 'ingredient_id' => $lettuce->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $salad_tomato_cheese->id,
+                'recipe_id' => $tomato_salad->id,
                 'ingredient_id' => $cheese->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $salad_tomato_cheese->id,
+                'recipe_id' => $tomato_salad->id,
                 'ingredient_id' => $tomato->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }
 
-        $meat_parrilla_db = RecipeIngredient::where('recipe_id', $meat_parrilla->id)->first();
+        $grilled_meat_db = RecipeIngredient::where('recipe_id', $grilled_meat->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
-        if(!isset($meat_parrilla_db)) {
+        if(!isset($grilled_meat_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $meat_parrilla->id,
+                'recipe_id' => $grilled_meat->id,
                 'ingredient_id' => $meat->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $meat_parrilla->id,
+                'recipe_id' => $grilled_meat->id,
                 'ingredient_id' => $onion->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $meat_parrilla->id,
+                'recipe_id' => $grilled_meat->id,
                 'ingredient_id' => $lemon->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }
 
-        $hamburguesa_db = RecipeIngredient::where('recipe_id', $hamburguesa->id)->first();
+        $burguer_db = RecipeIngredient::where('recipe_id', $burguer->id)->first();
         // Comprobamos que la recipe_ingredient esté en DB
-        if(!isset($hamburguesa_db)) {
+        if(!isset($burguer_db)) {
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $meat->id,
-                'cantidad' => 2,
+                'quantity' => 2,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $onion->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $tomato->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $ketchup->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $lettuce->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
             RecipeIngredient::insert([
-                'recipe_id' => $hamburguesa->id,
+                'recipe_id' => $burguer->id,
                 'ingredient_id' => $cheese->id,
-                'cantidad' => 1,
+                'quantity' => 1,
                 'created_at' => Carbon::now(),
             ]);
         }

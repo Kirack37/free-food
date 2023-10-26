@@ -18,7 +18,7 @@ class RecipesSeeder extends Seeder
         $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
         if(!isset($chicken_salad)) {
             Recipe::insert([
-                'nombre' => 'Chicken salad',
+                'name' => 'Chicken salad',
                 'description' => 'Chicken salad with lettuce, cheese, chicken, tomato and lemon drops.',
                 'preparation_time' => 15,
                 'difficulty' => 'Easy',
@@ -30,7 +30,7 @@ class RecipesSeeder extends Seeder
         $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
         if(!isset($chicken_rice)) {
             Recipe::insert([
-                'nombre' => 'Chicken rice with vegetables',
+                'name' => 'Chicken rice with vegetables',
                 'description' => 'Chicken rice with onion and tomato. You can add soy sauce to give it more flavor.',
                 'preparation_time' => 20,
                 'difficulty' => 'Medium',
@@ -42,7 +42,7 @@ class RecipesSeeder extends Seeder
         $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
         if(!isset($roasted_potatoes)) {
             Recipe::insert([
-                'nombre' => 'Roasted potatoes with cheese',
+                'name' => 'Roasted potatoes with cheese',
                 'description' => 'Roasted potatoes with ketchup and melted cheese. Made with the oven or with Airfryer.',
                 'preparation_time' => 25,
                 'difficulty' => 'Easy',
@@ -54,11 +54,11 @@ class RecipesSeeder extends Seeder
         $tomatoes_salad = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
         if(!isset($tomatoes_salad)) {
             Recipe::insert([
-                'nombre' => 'Tomato salad witch cheese',
+                'name' => 'Tomato salad with cheese',
                 'description' => 'Healthy salad with lettuce, tomato and cheese seasoned with salt, pepper and oregano.',
                 'preparation_time' => 15,
                 'difficulty' => 'Easy',
-                'slug' => Str::slug('Tomato salad witch cheese'),
+                'slug' => Str::slug('Tomato salad with cheese'),
                 'created_at' => Carbon::now(),
             ]);
         }
@@ -66,7 +66,7 @@ class RecipesSeeder extends Seeder
         $grilled_meat = Recipe::where('slug', 'grilled-meat-with-onion')->first();
         if(!isset($grilled_meat)) {
             Recipe::insert([
-                'nombre' => 'Grilled meat with onion',
+                'name' => 'Grilled meat with onion',
                 'description' => 'Meat steak made with caramelized onion, Provençal herbs and a little lemon.',
                 'preparation_time' => 60,
                 'difficulty' => 'Hard',
@@ -78,7 +78,7 @@ class RecipesSeeder extends Seeder
         $burguer = Recipe::where('slug', 'burguer')->first();
         if(!isset($burguer)) {
             Recipe::insert([
-                'nombre' => 'Burguer',
+                'name' => 'Burguer',
                 'description' => 'Burguer with tomato, cheese, lettuce and ketchup.',
                 'preparation_time' => 30,
                 'difficulty' => 'Medium',

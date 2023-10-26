@@ -98,50 +98,50 @@ class ImagesSeeder extends Seeder
         }
         /** RECETAS **/
         // Comprobamos que el ingredient esté en DB
-        $salad_chicken = Recipe::where('slug', 'chicken-salad')->first();
-        if(isset($salad_chicken)) {
-            $salad_chicken->update([
-                'image_path' => 'images/salad_chicken.jpg',
+        $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
+        if(isset($chicken_salad)) {
+            $chicken_salad->update([
+                'image_path' => 'images/chicken_salad.jpg',
                 'updated_at' => Carbon::now(),
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $rice_chicken = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
-        if(isset($rice_chicken)) {
-            $rice_chicken->update([
-                'image_path' => 'images/rice_chicken.jpg',
+        $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
+        if(isset($chicken_rice)) {
+            $chicken_rice->update([
+                'image_path' => 'images/chicken_rice.jpg',
                 'updated_at' => Carbon::now(),
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $potatos_asadas = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
-        if(isset($potatos_asadas)) {
-            $potatos_asadas->update([
-                'image_path' => 'images/potatos_asadas.jpg',
+        $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
+        if(isset($roasted_potatoes)) {
+            $roasted_potatoes->update([
+                'image_path' => 'images/roasted_potatoes.jpg',
                 'updated_at' => Carbon::now(),
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $salad_tomato_cheese = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
-        if(isset($salad_tomato_cheese)) {
-            $salad_tomato_cheese->update([
-                'image_path' => 'images/salad_tomato_cheese.jpg',
+        $tomato_salad = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
+        if(isset($tomato_salad)) {
+            $tomato_salad->update([
+                'image_path' => 'images/tomato_salad.jpg',
                 'updated_at' => Carbon::now(),
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $meat_parrilla = Recipe::where('slug', 'grilled-meat-with-onion')->first();
-        if(isset($meat_parrilla)) {
-            $meat_parrilla->update([
-                'image_path' => 'images/meat_parrilla.jpg',
+        $grilled_meat = Recipe::where('slug', 'grilled-meat-with-onion')->first();
+        if(isset($grilled_meat)) {
+            $grilled_meat->update([
+                'image_path' => 'images/grilled_meat.jpg',
                 'updated_at' => Carbon::now(),
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $hamburguesa = Recipe::where('slug', 'burguer')->first();
-        if(isset($hamburguesa)) {
-            $hamburguesa->update([
-                'image_path' => 'images/hamburguesa.webp',
+        $burguer = Recipe::where('slug', 'burguer')->first();
+        if(isset($burguer)) {
+            $burguer->update([
+                'image_path' => 'images/burguer.webp',
                 'updated_at' => Carbon::now(),
             ]);
         }
