@@ -33,11 +33,11 @@ Route::middleware([
     })->name('dashboard');
     // Escritorio general
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::post('/pedir-plato', [HomeController::class, 'orderDish']);
+    Route::post('/order-dish', [HomeController::class, 'orderDish']);
     Route::resource('recipes', RecipeController::class);
     Route::resource('ingredients', IngredientController::class);
     Route::resource('store', StoreController::class);
     Route::resource('recipe_ingredients', RecipeIngredient::class);
-    Route::get('/historial-orders', [HomeController::class, 'index'])->name('historial-orders.index');
-    Route::resource('historial_recipes', OrderHistoryController::class);
+    Route::get('/orders-history', [HomeController::class, 'index'])->name('orders-history.index');
+    Route::resource('orders_history', OrderHistoryController::class);
 });

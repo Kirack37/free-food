@@ -8,7 +8,7 @@ use App\Models\Recipe;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
-class ImagenesSeeder extends Seeder
+class ImagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -98,7 +98,7 @@ class ImagenesSeeder extends Seeder
         }
         /** RECETAS **/
         // Comprobamos que el ingredient esté en DB
-        $salad_chicken = Recipe::where('slug', 'salad-de-chicken')->first();
+        $salad_chicken = Recipe::where('slug', 'chicken-salad')->first();
         if(isset($salad_chicken)) {
             $salad_chicken->update([
                 'image_path' => 'images/salad_chicken.jpg',
@@ -106,7 +106,7 @@ class ImagenesSeeder extends Seeder
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $rice_chicken = Recipe::where('slug', 'rice-con-chicken-y-verduras')->first();
+        $rice_chicken = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
         if(isset($rice_chicken)) {
             $rice_chicken->update([
                 'image_path' => 'images/rice_chicken.jpg',
@@ -114,7 +114,7 @@ class ImagenesSeeder extends Seeder
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $potatos_asadas = Recipe::where('slug', 'potatos-asadas-con-cheese')->first();
+        $potatos_asadas = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
         if(isset($potatos_asadas)) {
             $potatos_asadas->update([
                 'image_path' => 'images/potatos_asadas.jpg',
@@ -122,7 +122,7 @@ class ImagenesSeeder extends Seeder
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $salad_tomato_cheese = Recipe::where('slug', 'salad-de-tomato-y-cheese')->first();
+        $salad_tomato_cheese = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
         if(isset($salad_tomato_cheese)) {
             $salad_tomato_cheese->update([
                 'image_path' => 'images/salad_tomato_cheese.jpg',
@@ -130,7 +130,7 @@ class ImagenesSeeder extends Seeder
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $meat_parrilla = Recipe::where('slug', 'meat-a-la-parrilla-con-onion')->first();
+        $meat_parrilla = Recipe::where('slug', 'grilled-meat-with-onion')->first();
         if(isset($meat_parrilla)) {
             $meat_parrilla->update([
                 'image_path' => 'images/meat_parrilla.jpg',
@@ -138,7 +138,7 @@ class ImagenesSeeder extends Seeder
             ]);
         }
         // Comprobamos que el ingredient esté en DB
-        $hamburguesa = Recipe::where('slug', 'hamburguesa-completa')->first();
+        $hamburguesa = Recipe::where('slug', 'burguer')->first();
         if(isset($hamburguesa)) {
             $hamburguesa->update([
                 'image_path' => 'images/hamburguesa.webp',

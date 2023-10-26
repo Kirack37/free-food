@@ -30,19 +30,19 @@
     <script>
         function orderDish() {
             // Llamada Axios para pedir platos
-            axios.post('/pedir-plato')
+            axios.post('/order-dish')
                 .then(response => {
                     console.log(response.data);
                     // TODO: Llamada para pedir plato
                 })
                 .catch(error => {
-                    console.error('Error al pedir el plato', error);
+                    console.error('Error when ordering the dish', error);
                 });
         }
 
         function updateOrdersHistory() {
             // Hacemos una solicitud al servidor para obtener el nuevo historial de orders
-            axios.get('{{ route('historial-orders.index') }}')
+            axios.get('{{ route('orders-history.index') }}')
                 .then(response => {
                     const ordersHistoryElement = $('#ordersHistory');
 

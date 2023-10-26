@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             RecipesSeeder::class,
             RecipeIngredientsSeeder::class,
             StoreSeeder::class,
-            ImagenesSeeder::class,
+            ImagesSeeder::class,
         ]);
     }
 }

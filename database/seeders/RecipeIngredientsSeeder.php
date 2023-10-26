@@ -39,12 +39,12 @@ class RecipeIngredientsSeeder extends Seeder
         // Inicializamos todos los ingredients.
         // Sabemos que están creados porque primero se ejecuta el seeder de recipes
         // Aun así, comprobamos y si falta alguna, lanzamos seeder recipes
-        $salad_chicken = Recipe::where('slug', 'salad-de-chicken')->first();
-        $rice_chicken = Recipe::where('slug', 'rice-con-chicken-y-verduras')->first();
-        $potatos_asadas = Recipe::where('slug', 'potatos-asadas-con-cheese')->first();
-        $salad_tomato_cheese = Recipe::where('slug', 'salad-de-tomato-y-cheese')->first();
-        $meat_parrilla = Recipe::where('slug', 'meat-a-la-parrilla-con-onion')->first();
-        $hamburguesa = Recipe::where('slug', 'hamburguesa-completa')->first();
+        $salad_chicken = Recipe::where('slug', 'chicken-salad')->first();
+        $rice_chicken = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
+        $potatos_asadas = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
+        $salad_tomato_cheese = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
+        $meat_parrilla = Recipe::where('slug', 'grilled-meat-with-onion')->first();
+        $hamburguesa = Recipe::where('slug', 'burguer')->first();
         if(!isset($salad_chicken) ||!isset($rice_chicken) || !isset($potatos_asadas)
         ||!isset($salad_tomato_cheese) || !isset($meat_parrilla) || !isset($hamburguesa)) {
             $this->call([
