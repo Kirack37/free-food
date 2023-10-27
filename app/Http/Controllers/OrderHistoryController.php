@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderHistory;
 use Illuminate\Http\Request;
 
 class OrderHistoryController extends Controller
@@ -11,7 +12,9 @@ class OrderHistoryController extends Controller
      */
     public function index()
     {
-        //
+        $orders = OrderHistory::orderByDesc('created_at')->get();
+
+        return view('orders.index', compact('orders'));
     }
 
     /**

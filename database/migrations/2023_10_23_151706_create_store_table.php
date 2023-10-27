@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('store')) {
             Schema::create('store', function (Blueprint $table) {
                 $table->id();
-                $table->integer('available_quantity')->default(5);
+                $table->integer('quantity_available')->default(5);
                 $table->foreignId('ingredient_id');
                 $table->timestamps();
                 $table->softDeletes();

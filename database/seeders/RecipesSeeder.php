@@ -79,7 +79,7 @@ class RecipesSeeder extends Seeder
         if(!isset($burguer)) {
             Recipe::insert([
                 'name' => 'Burguer',
-                'description' => 'Burguer with tomato, cheese, lettuce and ketchup.',
+                'description' => 'Delicious burguer with tomato, cheese, lettuce and ketchup.',
                 'preparation_time' => 30,
                 'difficulty' => 'Medium',
                 'slug' => Str::slug('Burguer'),

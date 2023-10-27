@@ -38,6 +38,7 @@ Route::middleware([
     Route::resource('ingredients', IngredientController::class);
     Route::resource('store', StoreController::class);
     Route::resource('recipe_ingredients', RecipeIngredient::class);
-    Route::get('/orders-history', [HomeController::class, 'index'])->name('orders-history.index');
-    Route::resource('orders_history', OrderHistoryController::class);
+    Route::resource('orders', OrderHistoryController::class);
+    Route::get('/get-orders-history', [HomeController::class, 'getOrdersHistory']);
+    Route::get('/get-ingredients', [HomeController::class, 'getIngredients']);
 });
