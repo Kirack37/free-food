@@ -3,14 +3,14 @@
 @section('header_title_page', 'Home')
 
 @section('content')
-    <!-- Contenido principal -->
+    <!-- Principal content -->
     <div class="container custom-content">
         <h1 class="mb-4">Soup Kitchen</h1>
 
-        <!-- Botón para pedir un plato -->
+        <!-- Button to ask for a dish -->
         <button class="btn btn-dark" onclick="orderDish()">Order a dish</button>
 
-        <!-- Sección de Historial de Pedidos -->
+        <!-- Ordes history section -->
         <section class="mt-4">
             <h2>Orders in progress</h2>
             <table id="ordersTable" class="display">
@@ -25,7 +25,7 @@
                 <tbody id="ordersHistory"></tbody>
             </table>
         </section>
-        <!-- Sección de ingredientes -->
+        <!-- Ingredients section -->
         <section class="mt-4">
             <div class="row" id="ingredientsContainer"></div>
         </section>
@@ -35,7 +35,7 @@
 @section('extra-js')
     <script>
         $(document).ready(function() {
-            // Inicializamos la tabla con DataTables
+            // We initialize the table
             const ordersTable = $('#ordersTable').DataTable({
                 columns: [{
                         data: 'name',
@@ -54,20 +54,25 @@
                         title: 'Order finished at'
                     },
                 ],
-                order: [[1, 'desc']],
+                order: [
+                    [1, 'desc']
+                ],
                 language: {
                     emptyTable: "No orders in progress at the moment",
                     infoEmpty: "No orders available",
                 },
             });
 
+            /**
+             * Method to get the orders history and draw them in a table
+             **/
             function updateOrdersHistory() {
-                // Hacemos una solicitud al servidor para obtener el nuevo historial de órdenes
+                // We make an axios call in order to get the orders history
                 axios.get('/get-orders-history')
                     .then(response => {
                         const ordersHistory = response.data.ordersHistory;
 
-                        // Limpiamos y recreamos la tabla con los nuevos datos
+                        // We clear and add the new rows
                         ordersTable.clear().rows.add(ordersHistory).draw();
                     })
                     .catch(error => {
@@ -75,10 +80,13 @@
                     });
             }
 
+            /**
+             * Method to get the ingredients and quantity in the store
+             **/
             function updateIngredients() {
                 axios.get('/get-ingredients')
                     .then(response => {
-                        // Limpiamos el contenedor antes de agregar los nuevos ingredientes
+                        // We empty and add the ingredients with the new quantities
                         $('#ingredientsContainer').empty();
                         $.each(response.data, function(index, data) {
                             $('#ingredientsContainer').append(`
@@ -96,21 +104,20 @@
                     });
             }
 
-            // Actualizamos automáticamente cada 30 segundos
-            setInterval(updateIngredients, 30000);
-
-            // Ejecutamos la actualización al cargar la página
+            // We update each 5 seconds
+            setInterval(updateIngredients, 5000);
             updateIngredients();
 
-            // Actualizamos automáticamente cada 5 segundos
+            // We update each 3 seconds
             setInterval(updateOrdersHistory, 3000);
-
-            // Ejecutamos la actualización al cargar la página
             updateOrdersHistory();
         });
 
+        /**
+         * Method to order a new dish
+         **/
         function orderDish() {
-            // Llamada Axios para pedir platos
+            // We show the information toast to let the user know that we have a new order
             Toastify({
                 text: "Dish on preparation",
                 duration: 3000,
@@ -118,8 +125,11 @@
                 position: "right",
                 className: "info"
             }).showToast();
+
+            // Axios post to execute the order dish logic
             axios.post('/order-dish')
                 .then(response => {
+                    // We show the succeed toast to let the user know that the order is finished
                     Toastify({
                         text: "Order completed successfully",
                         duration: 5000,
@@ -129,6 +139,7 @@
                     }).showToast();
                 })
                 .catch(error => {
+                    // We show the succeed toast to let the user know that the order had an error
                     Toastify({
                         text: "Error when ordering the dish",
                         duration: 3000,
@@ -145,9 +156,11 @@
         .toastify.info {
             background: #4b5ea3;
         }
+
         .toastify.succeed {
             background: #69ae37;
         }
+
         .toastify.error {
             background: #cc3014;
         }

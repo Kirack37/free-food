@@ -22,63 +22,77 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Main action to order a new dish.
      */
     public function orderDish()
     {
-        // Lógica para elegir aleatoriamente una recipe
+        // Choose a random recipe
         $data = $this->chooseRandomRecipe();
 
-        // Lógica para comprobar si disponemos de los ingredients
+        // Check if we have the all the ingredients for the chosen recipe
         $needToBuy = true;
         while ($needToBuy) {
             $missingIngredients = $this->checkIngredients($data['recipe']);
             if (count($missingIngredients) > 0) {
-                $this->buyIngredients($missingIngredients);
+                $boughtIngredients = $this->buyIngredients($missingIngredients);
                 $missingIngredients = $this->checkIngredients($data['recipe']);
                 if (count($missingIngredients) == 0) {
                     $needToBuy = false;
                 }
             } else {
+                $boughtIngredients = 0;
                 $needToBuy = false;
             }
         }
+        // We substract the ingredients when we know that we have all of them
         $this->subtractIngredients($data['recipe']);
         $orderToFinish = OrderHistory::where('id', $data['order'])->first();
-        // Para que de tiempo a recargar la tabla
+        // We use the sleep because of the quickness of the petition,
+        // only to make all the logics more visual to the user
         sleep(3);
+        // We update the order history
         if (isset($orderToFinish)) {
             $orderToFinish->finished = 1;
             $orderToFinish->updated_at = Carbon::now();
             $orderToFinish->save();
         }
 
-        // Devolvemos la respuesta
-        return response()->json(['ordersHistory' => $orderToFinish]);
+        // Return the response in json format
+        return response()->json(['ordersHistory' => $orderToFinish, 'marketBuy', $boughtIngredients]);
     }
 
+    /**
+     * Action to choose a random recipe.
+     */
     private function chooseRandomRecipe()
     {
+        // We transfor the recipes into array in order to use array_rand
         $recipes = Recipe::all()->toArray();
         $chosenRecipe = $recipes[array_rand($recipes)];
+        // We create the register of the new order
         $orderHistory = OrderHistory::insertGetId([
             'finished' => 0,
             'recipe_id' => $chosenRecipe['id'],
             'quantity' => 1,
             'created_at' => Carbon::now(),
         ]);
+        // Return the response with the object and array we need
         return ['recipe' => $chosenRecipe, 'order' => $orderHistory];
     }
 
+    /**
+     * Action to substract ingredients from the store
+     */
     private function subtractIngredients($recipe)
     {
-        // Lógica para restar los componentes de la bodega
+        // We check the ingredients we need
         $ingredientsRecipe = RecipeIngredient::where('recipe_id', $recipe)->get();
         if (isset($ingredientsRecipe)) {
-            // Comprobamos en la store
+            // Check in the store
             foreach ($ingredientsRecipe as $ingredientRecipe) {
                 $ingredientStore = Store::where('ingredient_id', $ingredientRecipe->ingredient_id)->first();
                 if (isset($ingredientStore)) {
+                    // Substract the ingredients from the store
                     $ingredientStore->quantity_available =
                         $ingredientStore->quantity_available - $ingredientRecipe->quantity;
                 }
@@ -88,24 +102,29 @@ class HomeController extends Controller
         }
         return "Recipe ready";
     }
+    /**
+     * Action to buy ingredients in the market.
+     */
     private function buyIngredients($missingIngredients)
     {
-        /// Validamos el ingrediente que nos llega con los que acepta el mercado
+        // We need to do a foreach to search all the ingredients we need t buy
         $Ingredientssold = [];
         foreach ($missingIngredients as $ingredient) {
             $ingredientToBuy = Ingredient::where('id', $ingredient['ingredient'])->first();
-            // Hacer la solicitud a la plaza de mercado
+            // Make the API call
             if (isset($ingredientToBuy)) {
                 $successfulBuy = false;
+                // If the buy isn't successful, we make the API call again
                 while (!$successfulBuy) {
                     $response = Http::get(
                         'https://recruitment.alegra.com/api/farmers-market/buy',
                         ['ingredient' => $ingredientToBuy->slug]
                     );
+                    // We get the quantity sold
                     if ($response->successful()) {
                         $quantitySold = $response->json()['quantitySold'];
 
-                        // Actualizamos en db con la cantidad comprada
+                        // Update the store with the new ingredients
                         if ($quantitySold > 0) {
                             $ingredientSold = [
                                 'quantitySold' => $quantitySold,
@@ -122,7 +141,7 @@ class HomeController extends Controller
                                 return "The ingredient doesn't exist in the store";
                             }
                         } else {
-                            // Si no hay ingredientes
+                            // If there's no ingredients in the market
                             $ingredientSold = [
                                 'quantitySold' => $quantitySold,
                                 'ingredient'  => $ingredientToBuy->name,
@@ -138,44 +157,42 @@ class HomeController extends Controller
         }
         return response()->json($Ingredientssold);
     }
+    /**
+     * Check the ingredient in the store.
+     */
     private function checkIngredients($recipe)
     {
-        // Lógica para comprobar si tenemos los ingredients necesarios
+        // Logic to check if we have enough ingredients
         $ingredientsRecipe = RecipeIngredient::where('recipe_id', $recipe)->get();
         $missingIngredients = [];
         if (isset($ingredientsRecipe)) {
 
-            // Comprobamos en la store
+            // Checking the store
             foreach ($ingredientsRecipe as $ingredientRecipe) {
                 $ingredientStore = Store::where('ingredient_id', $ingredientRecipe->ingredient_id)->first();
-                // Comprobamos que el ingredient exista en la store
                 if (
                     isset($ingredientStore) &&
                     $ingredientRecipe->quantity > $ingredientStore->quantity_available
                 ) {
-                    // Pusheamos a un array single y luego al total
+                    // We push into a single array and into the total to have a key-value
+                    // array with the id and quantity of the ingredient
                     $ingredientsFaltante = [
                         'ingredient' => $ingredientRecipe->ingredient_id,
                         'quantity' => $ingredientRecipe->quantity - $ingredientStore->quantity_available
                     ];
                     $missingIngredients[] = $ingredientsFaltante;
-                } else {
-                    if (isset($ingredientStore)) {
-                        $ingredientStore->quantity_available =
-                            $ingredientStore->quantity_available - $ingredientRecipe->quantity;
-                        $ingredientStore->save();
-                    } else {
-                        return 0;
-                    }
                 }
             }
         }
-        // Devolvemos los ingredients restantes (los que nos faltan en la store)
+        // We return the array
         return $missingIngredients;
     }
+    /**
+     * Get the orders history.
+     */
     public function getOrdersHistory()
     {
-        // Historial de orders sin realizar
+        // We get all the orders
         $ordersHistory = OrderHistory::orderByDesc('created_at')->get();
         $orders = [];
         foreach ($ordersHistory as $order) {
@@ -183,17 +200,18 @@ class HomeController extends Controller
                 'name' => $order->recipe->name,
                 'created_at' => $order->created_at->toDateTimeString(),
                 'quantity' => $order->quantity,
-                'updated_at' => isset($order->updated_at) ? $order->updated_at->toDateTimeString() : "",
+                'updated_at' => isset($order->updated_at) ? $order->updated_at->toDateTimeString() : "Not finished yet",
             ];
         }
-
+        // Return in JSON
         return response()->json(['ordersHistory' => $orders]);
     }
+    /**
+     * Get the ingredients in the store.
+     */
     public function getIngredients()
     {
-        // Historial de orders sin realizar
-        $ingredientsStore = Store::with('ingredient')->get();
-
-        return $ingredientsStore;
+        // We get all the ingredients and return them
+        return Store::with('ingredient')->get();
     }
 }
