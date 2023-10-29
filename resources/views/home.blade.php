@@ -90,7 +90,7 @@
                         $('#ingredientsContainer').empty();
                         $.each(response.data, function(index, data) {
                             $('#ingredientsContainer').append(`
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-3 mb-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">${data.ingredient.name}</h5>
