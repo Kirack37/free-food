@@ -18,11 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Lógica para obtener el historial de orders
-        $ordersHistory = $this->getOrdersHistory();
-        $ingredients = $this->getIngredients();
-
-        return view('home', ['ordersHistory' => $ordersHistory, 'ingredients' => $ingredients]);
+        return view('home');
     }
 
     /**
@@ -50,9 +46,10 @@ class HomeController extends Controller
         $this->subtractIngredients($data['recipe']);
         $orderToFinish = OrderHistory::where('id', $data['order'])->first();
         // Para que de tiempo a recargar la tabla
-        sleep(10);
+        sleep(3);
         if (isset($orderToFinish)) {
             $orderToFinish->finished = 1;
+            $orderToFinish->updated_at = Carbon::now();
             $orderToFinish->save();
         }
 
@@ -179,13 +176,14 @@ class HomeController extends Controller
     public function getOrdersHistory()
     {
         // Historial de orders sin realizar
-        $ordersHistory = OrderHistory::where('finished', 0)->get();
+        $ordersHistory = OrderHistory::orderByDesc('created_at')->get();
         $orders = [];
         foreach ($ordersHistory as $order) {
             $orders[] = [
                 'name' => $order->recipe->name,
                 'created_at' => $order->created_at->toDateTimeString(),
                 'quantity' => $order->quantity,
+                'updated_at' => isset($order->updated_at) ? $order->updated_at->toDateTimeString() : "",
             ];
         }
 

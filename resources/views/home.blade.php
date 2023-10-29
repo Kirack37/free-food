@@ -19,6 +19,7 @@
                         <th>Order name</th>
                         <th>Order hour of creation</th>
                         <th>Order quantity</th>
+                        <th>Order finished at</th>
                     </tr>
                 </thead>
                 <tbody id="ordersHistory"></tbody>
@@ -48,7 +49,12 @@
                         data: 'quantity',
                         title: 'Order quantity'
                     },
+                    {
+                        data: 'updated_at',
+                        title: 'Order finished at'
+                    },
                 ],
+                order: [[1, 'desc']],
                 language: {
                     emptyTable: "No orders in progress at the moment",
                     infoEmpty: "No orders available",
@@ -60,9 +66,6 @@
                 axios.get('/get-orders-history')
                     .then(response => {
                         const ordersHistory = response.data.ordersHistory;
-
-                        // Destruimos la tabla actual antes de recrearla
-                        // ordersTable.destroy();
 
                         // Limpiamos y recreamos la tabla con los nuevos datos
                         ordersTable.clear().rows.add(ordersHistory).draw();
@@ -77,7 +80,6 @@
                     .then(response => {
                         // Limpiamos el contenedor antes de agregar los nuevos ingredientes
                         $('#ingredientsContainer').empty();
-                        console.log(response)
                         $.each(response.data, function(index, data) {
                             $('#ingredientsContainer').append(`
                     <div class="col-md-4 mb-4">
@@ -109,14 +111,45 @@
 
         function orderDish() {
             // Llamada Axios para pedir platos
+            Toastify({
+                text: "Dish on preparation",
+                duration: 3000,
+                gravity: "bottom",
+                position: "right",
+                className: "info"
+            }).showToast();
             axios.post('/order-dish')
                 .then(response => {
-                    console.log(response.data);
-                    // TODO: Llamada para pedir plato
+                    Toastify({
+                        text: "Order completed successfully",
+                        duration: 5000,
+                        gravity: "bottom",
+                        position: "right",
+                        className: "succeed"
+                    }).showToast();
                 })
                 .catch(error => {
-                    console.error('Error when ordering the dish', error);
+                    Toastify({
+                        text: "Error when ordering the dish",
+                        duration: 3000,
+                        gravity: "bottom",
+                        position: "right",
+                        className: "error"
+                    }).showToast();
                 });
         }
     </script>
+@endsection
+@section('styles')
+    <style>
+        .toastify.info {
+            background: #4b5ea3;
+        }
+        .toastify.succeed {
+            background: #69ae37;
+        }
+        .toastify.error {
+            background: #cc3014;
+        }
+    </style>
 @endsection
