@@ -45,7 +45,7 @@ class HomeController extends Controller
             }
         }
         // We substract the ingredients when we know that we have all of them
-        $this->subtractIngredients($data['recipe']);
+        $substract = $this->subtractIngredients($data['recipe']);
         $orderToFinish = OrderHistory::where('id', $data['order'])->first();
         // We use the sleep because of the quickness of the petition,
         // only to make all the logics more visual to the user
@@ -58,7 +58,11 @@ class HomeController extends Controller
         }
 
         // Return the response in json format
-        return response()->json(['ordersHistory' => $orderToFinish, 'marketBuy', $boughtIngredients]);
+        return response()->json([
+            'ordersHistory' => $orderToFinish,
+            'marketBuy' => $boughtIngredients,
+            'substract' => $substract
+        ]);
     }
 
     /**
@@ -86,6 +90,7 @@ class HomeController extends Controller
     private function subtractIngredients($recipe)
     {
         // We check the ingredients we need
+        $ingredientsSubstracted = [];
         $ingredientsRecipe = RecipeIngredient::where('recipe_id', $recipe)->get();
         if (isset($ingredientsRecipe)) {
             // Check in the store
@@ -95,12 +100,18 @@ class HomeController extends Controller
                     // Substract the ingredients from the store
                     $ingredientStore->quantity_available =
                         $ingredientStore->quantity_available - $ingredientRecipe->quantity;
+                    $ingredientStore->save();
+                    $ingredientSubstracted = [
+                        'ingredient' => $ingredientStore->ingredient_id,
+                        'substract' => $ingredientStore->quantity_available - $ingredientRecipe->quantity
+                    ];
                 }
+                $ingredientsSubstracted[] = $ingredientSubstracted;
             }
         } else {
             return "The recipe doesn't exists.";
         }
-        return "Recipe ready";
+        return $ingredientsSubstracted;
     }
     /**
      * Action to buy ingredients in the market.
