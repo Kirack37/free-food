@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link href="{{ asset('assets/demo/demo.css" rel="stylesheet') }}" />
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         @yield('styles')
     </head>
 
@@ -44,6 +45,7 @@
   <link rel="text/javascript" href="https://cdn.tailwindcss.com/">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwindcss.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   @yield('extra-js')
 </body>
 
