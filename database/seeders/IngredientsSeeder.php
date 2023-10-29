@@ -14,7 +14,7 @@ class IngredientsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $tomato = Ingredient::where('slug', 'tomato')->first();
         if(!isset($tomato)) {
             Ingredient::insert([
@@ -23,7 +23,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $lemon = Ingredient::where('slug', 'lemon')->first();
         if(!isset($lemon)) {
             Ingredient::insert([
@@ -32,7 +32,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $potato = Ingredient::where('slug', 'potato')->first();
         if(!isset($potato)) {
             Ingredient::insert([
@@ -41,7 +41,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $rice = Ingredient::where('slug', 'rice')->first();
         if(!isset($rice)) {
             Ingredient::insert([
@@ -50,7 +50,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $ketchup = Ingredient::where('slug', 'ketchup')->first();
         if(!isset($ketchup)) {
             Ingredient::insert([
@@ -59,7 +59,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $lettuce = Ingredient::where('slug', 'lettuce')->first();
         if(!isset($lettuce)) {
             Ingredient::insert([
@@ -68,7 +68,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $onion = Ingredient::where('slug', 'onion')->first();
         if(!isset($onion)) {
             Ingredient::insert([
@@ -77,7 +77,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $cheese = Ingredient::where('slug', 'cheese')->first();
         if(!isset($cheese)) {
             Ingredient::insert([
@@ -86,7 +86,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $meat = Ingredient::where('slug', 'meat')->first();
         if(!isset($meat)) {
             Ingredient::insert([
@@ -95,7 +95,7 @@ class IngredientsSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $chicken = Ingredient::where('slug', 'chicken')->first();
         if(!isset($chicken)) {
             Ingredient::insert([

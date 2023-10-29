@@ -14,7 +14,7 @@ class RecipesSeeder extends Seeder
      */
     public function run(): void
     {
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
         if(!isset($chicken_salad)) {
             Recipe::insert([
@@ -26,7 +26,7 @@ class RecipesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
         if(!isset($chicken_rice)) {
             Recipe::insert([
@@ -38,7 +38,7 @@ class RecipesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
         if(!isset($roasted_potatoes)) {
             Recipe::insert([
@@ -50,7 +50,7 @@ class RecipesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $tomatoes_salad = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
         if(!isset($tomatoes_salad)) {
             Recipe::insert([
@@ -62,7 +62,7 @@ class RecipesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $grilled_meat = Recipe::where('slug', 'grilled-meat-with-onion')->first();
         if(!isset($grilled_meat)) {
             Recipe::insert([
@@ -74,7 +74,7 @@ class RecipesSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la recipe esté en DB
+        // We check if the recipe is in the DB
         $burguer = Recipe::where('slug', 'burguer')->first();
         if(!isset($burguer)) {
             Recipe::insert([

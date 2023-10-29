@@ -15,8 +15,8 @@ class ImagesSeeder extends Seeder
      */
     public function run(): void
     {
-        /** INGREDIENTES **/
-        // Comprobamos que el ingredient esté en DB
+        /** INGREDIENTS **/
+        // We check if the ingredient is in the DB
         $tomato = Ingredient::where('slug', 'tomato')->first();
         if(isset($tomato)) {
             $tomato->update([
@@ -24,7 +24,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $lemon = Ingredient::where('slug', 'lemon')->first();
         if(isset($lemon)) {
             $lemon->update([
@@ -32,7 +32,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $potato = Ingredient::where('slug', 'potato')->first();
         if(isset($potato)) {
             $potato->update([
@@ -40,7 +40,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $rice = Ingredient::where('slug', 'rice')->first();
         if(isset($rice)) {
             $rice->update([
@@ -48,7 +48,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $ketchup = Ingredient::where('slug', 'ketchup')->first();
         if(isset($ketchup)) {
             $ketchup->update([
@@ -56,7 +56,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $lettuce = Ingredient::where('slug', 'lettuce')->first();
         if(isset($lettuce)) {
             $lettuce->update([
@@ -64,7 +64,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $onion = Ingredient::where('slug', 'onion')->first();
         if(isset($onion)) {
             $onion->update([
@@ -72,7 +72,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $cheese = Ingredient::where('slug', 'cheese')->first();
         if(isset($cheese)) {
             $cheese->update([
@@ -80,7 +80,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $meat = Ingredient::where('slug', 'meat')->first();
         if(isset($meat)) {
             $meat->update([
@@ -88,7 +88,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the ingredient is in the DB
         $chicken = Ingredient::where('slug', 'chicken')->first();
         if(isset($chicken)) {
             $chicken->update([
@@ -96,8 +96,9 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        /** RECETAS **/
-        // Comprobamos que el ingredient esté en DB
+
+        /** RECIPES **/
+        // We check if the recipe is in the DB
         $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
         if(isset($chicken_salad)) {
             $chicken_salad->update([
@@ -105,7 +106,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the recipe is in the DB
         $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
         if(isset($chicken_rice)) {
             $chicken_rice->update([
@@ -113,7 +114,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the recipe is in the DB
         $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
         if(isset($roasted_potatoes)) {
             $roasted_potatoes->update([
@@ -121,7 +122,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the recipe is in the DB
         $tomato_salad = Recipe::where('slug', 'tomato-salad-with-cheese')->first();
         if(isset($tomato_salad)) {
             $tomato_salad->update([
@@ -129,7 +130,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the recipe is in the DB
         $grilled_meat = Recipe::where('slug', 'grilled-meat-with-onion')->first();
         if(isset($grilled_meat)) {
             $grilled_meat->update([
@@ -137,7 +138,7 @@ class ImagesSeeder extends Seeder
                 'updated_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que el ingredient esté en DB
+        // We check if the recipe is in the DB
         $burguer = Recipe::where('slug', 'burguer')->first();
         if(isset($burguer)) {
             $burguer->update([

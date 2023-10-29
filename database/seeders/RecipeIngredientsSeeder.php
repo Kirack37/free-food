@@ -16,9 +16,8 @@ class RecipeIngredientsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Inicializamos todos los ingredients.
-        // Sabemos que están creados porque primero se ejecuta el seeder de ingredients
-        // Aun así, comprobamos y si falta alguna, lanzamos seeder ingredients
+        // We initialize ingredients.
+        // We check all the ingredients and if one is missed, the ingredient seeder is executed again.
         $tomato = Ingredient::where('slug', 'tomato')->first();
         $lemon = Ingredient::where('slug', 'lemon')->first();
         $potato = Ingredient::where('slug', 'potato')->first();
@@ -36,9 +35,8 @@ class RecipeIngredientsSeeder extends Seeder
                 IngredientsSeeder::class,
             ]);
         }
-        // Inicializamos todos los ingredients.
-        // Sabemos que están creados porque primero se ejecuta el seeder de recipes
-        // Aun así, comprobamos y si falta alguna, lanzamos seeder recipes
+        // We initialize recipes.
+        // We check all the recipes and if one is missed, the recipe seeder is executed again.
         $chicken_salad = Recipe::where('slug', 'chicken-salad')->first();
         $chicken_rice = Recipe::where('slug', 'chicken-rice-with-vegetables')->first();
         $roasted_potatoes = Recipe::where('slug', 'roasted-potatoes-with-cheese')->first();
@@ -53,7 +51,7 @@ class RecipeIngredientsSeeder extends Seeder
         }
 
         $chicken_salad_db = RecipeIngredient::where('recipe_id', $chicken_salad->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($chicken_salad_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $chicken_salad->id,
@@ -82,7 +80,7 @@ class RecipeIngredientsSeeder extends Seeder
         }
 
         $chicken_rice_db = RecipeIngredient::where('recipe_id', $chicken_rice->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($chicken_rice_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $chicken_rice->id,
@@ -110,7 +108,7 @@ class RecipeIngredientsSeeder extends Seeder
             ]);
         }
         $roasted_potatoes_db = RecipeIngredient::where('recipe_id', $roasted_potatoes->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($roasted_potatoes_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $roasted_potatoes->id,
@@ -133,7 +131,7 @@ class RecipeIngredientsSeeder extends Seeder
         }
 
         $salad_tomato_db = RecipeIngredient::where('recipe_id', $tomato_salad->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($salad_tomato_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $tomato_salad->id,
@@ -156,7 +154,7 @@ class RecipeIngredientsSeeder extends Seeder
         }
 
         $grilled_meat_db = RecipeIngredient::where('recipe_id', $grilled_meat->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($grilled_meat_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $grilled_meat->id,
@@ -179,7 +177,7 @@ class RecipeIngredientsSeeder extends Seeder
         }
 
         $burguer_db = RecipeIngredient::where('recipe_id', $burguer->id)->first();
-        // Comprobamos que la recipe_ingredient esté en DB
+        // We check if the recipe_ingredient is in the DB
         if(!isset($burguer_db)) {
             RecipeIngredient::insert([
                 'recipe_id' => $burguer->id,

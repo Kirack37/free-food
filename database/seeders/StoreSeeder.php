@@ -14,7 +14,7 @@ class StoreSeeder extends Seeder
      */
     public function run(): void
     {
-        // Comprobamos que el Store_store esté en DB
+        // We check if the ingredient is in the store
         $tomato = Ingredient::where('slug', 'tomato')->first();
         if(isset($tomato)) {
             $tomato_store = Store::where('ingredient_id', $tomato->id)->first();
@@ -25,7 +25,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $lemon = Ingredient::where('slug', 'lemon')->first();
         if(isset($lemon)) {
             $lemon_store = Store::where('ingredient_id', $lemon->id)->first();
@@ -36,7 +36,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $potato = Ingredient::where('slug', 'potato')->first();
         if(isset($potato)) {
             $potato_store = Store::where('ingredient_id', $potato->id)->first();
@@ -47,7 +47,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $rice = Ingredient::where('slug', 'rice')->first();
         if(isset($rice)) {
             $rice_store = Store::where('ingredient_id', $rice->id)->first();
@@ -58,7 +58,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $ketchup = Ingredient::where('slug', 'ketchup')->first();
         if(isset($ketchup)) {
             $ketchup_store = Store::where('ingredient_id', $ketchup->id)->first();
@@ -69,7 +69,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $lettuce = Ingredient::where('slug', 'lettuce')->first();
         if(isset($lettuce)) {
             $lettuce_store = Store::where('ingredient_id', $lettuce->id)->first();
@@ -80,7 +80,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $onion = Ingredient::where('slug', 'onion')->first();
         if(isset($onion)) {
             $onion_store = Store::where('ingredient_id', $onion->id)->first();
@@ -91,7 +91,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $cheese = Ingredient::where('slug', 'cheese')->first();
         if(isset($cheese)) {
             $cheese_store = Store::where('ingredient_id', $cheese->id)->first();
@@ -102,7 +102,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $meat = Ingredient::where('slug', 'meat')->first();
         if(isset($meat)) {
             $meat_store = Store::where('ingredient_id', $meat->id)->first();
@@ -113,7 +113,7 @@ class StoreSeeder extends Seeder
                 'created_at' => Carbon::now(),
             ]);
         }
-        // Comprobamos que la store esté en DB
+        // We check if the ingredient is in the store
         $chicken = Ingredient::where('slug', 'chicken')->first();
         if(isset($chicken)) {
             $chicken_store = Store::where('ingredient_id', $chicken->id)->first();

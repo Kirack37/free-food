@@ -10,5 +10,6 @@ class Market extends Model
 {
     use HasFactory, SoftDeletes;
 
+    // TODO: Create market table
     protected $table = 'market';
 }
