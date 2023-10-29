@@ -5,7 +5,7 @@
 @section('content')
     <!-- Principal content -->
     <div class="container custom-content">
-        <h1 class="mb-4">Soup Kitchen</h1>
+        <h1 class="mb-4">Free Food</h1>
 
         <!-- Button to ask for a dish -->
         <button class="btn btn-dark" onclick="orderDish()">Order a dish</button>
